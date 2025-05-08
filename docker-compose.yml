@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  node-app:
+    build: .
+    container_name: module-3-container1
+    ports:
+      - 8080:5000
+
+  nginx:
+      build: ./nginx
+      ports:
+        - 80:80
+      depends_on:
+        - node-app
+      restart: always
